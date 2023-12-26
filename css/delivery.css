@@ -1,0 +1,57 @@
+.delivery{
+    margin-bottom: -40px;
+    width: 100%;
+    .container{
+        min-height: 712px;
+        display: flex;
+        background: url("../img/layer/delivery.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        align-items: center;
+    }
+    .delivery_title{
+        color: #FFF;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 48px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
+    .delivery_payment_item{
+        color:  #959595;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+    }
+    img{
+        width: 100%;
+    }
+    .row{
+        width: 100%;
+        padding-left: 108px;
+        padding-right: 108px;
+    }
+    .col:first-child{
+        display: grid;
+        align-items: center;
+    }
+    .delivery_container_item{
+        display: flex;
+        width: 100%;
+        max-width: 390px;
+        margin-bottom: 15px;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        justify-content: space-between;
+        div:first-child{
+            color: #959595;
+            font-weight: 400;
+        }
+        div:last-child{
+            color: #00A8FF;
+            font-weight: 700;
+        }
+    }
+}
