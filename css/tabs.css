@@ -1,0 +1,26 @@
+.tabs-container {
+    display: flex;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 5px;
+    background-color: #eee;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab.active{
+    color: #00A8FF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: lowercase;
+}

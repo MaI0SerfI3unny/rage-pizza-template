@@ -1,5 +1,6 @@
 footer{
     width: 100%;
+    position: relative;
     background: #0E0E0E url("../img/layer/footer.png") center center no-repeat;
     background-size: cover;
     min-height: 458px;
@@ -34,5 +35,18 @@ footer{
     }
     .info_footer{
         display: block;
+    }
+}
+
+
+@media (max-width: 992px) {
+    footer .row{
+        padding-top: 150px;
+        padding-bottom: 30px;
+        display: block;
+    }
+
+    .footer .col{
+        margin-bottom: 30px;
     }
 }

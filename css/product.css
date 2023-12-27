@@ -15,6 +15,7 @@
                 padding-left: 32px;
                 padding-right: 32px;
             }
+            position: relative;
             width: 25%;
             max-width: 310px;
             border-left: 1px solid #1F1F1F;
@@ -123,4 +124,69 @@
     transform: rotate(355deg);
     max-width: 145px;
     margin-left: 8px;
+}
+
+.product_special_container{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 22px;
+    img{
+        max-width: 30px;
+    }
+    img:first-child{
+        margin-right: 10px;
+    }
+}
+
+
+@media (max-width:1400px) {
+    .product_list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .product_container
+    .product_list
+    .product_list_item{
+        width: 45% ;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .product_container h2{
+        text-align: center;
+    }
+}
+
+.upper_head_panel{
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2{
+        margin-bottom: 0;
+    }
+    .tab{
+        background: none;
+        color: #FFF;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 26px;
+        font-weight: 600;
+        text-transform: lowercase;
+    }
+}
+
+@media (max-width:600px) {
+    .banner{
+        min-height: auto !important;
+    }
+
+    .delivery .row{
+        display: block;
+    }
+
+    .product_container .product_list .product_list_item {
+        width: 100%;
+    }
+    
 }

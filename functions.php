@@ -1,18 +1,27 @@
 <?php
 add_action('wp_enqueue_scripts', function(){
+    // Enqueue the built-in jQuery
+    wp_enqueue_script('jquery');
+
+    // Enqueue your custom styles
     wp_enqueue_style('style', get_template_directory_uri() . '/css/style.min.css' );
     wp_enqueue_style('footer-style', get_template_directory_uri() . '/css/footer.css' );
     wp_enqueue_style('header-style', get_template_directory_uri() . '/css/header.css' );
     wp_enqueue_style('delivery-style', get_template_directory_uri() . '/css/delivery.css' );
     wp_enqueue_style('product-style', get_template_directory_uri() . '/css/product.css' );
+    wp_enqueue_style('banner-style', get_template_directory_uri() . '/css/banner.css' );
+    wp_enqueue_style('tabs-style', get_template_directory_uri() . '/css/tabs.css' );
+    wp_enqueue_style('aos-style', get_template_directory_uri() . '/css/aos.css' );
 
+    // Enqueue external styles and scripts
     wp_enqueue_style('swiper', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" );
-
-    wp_enqueue_script("swipe-js", "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js");
-    wp_enqueue_script("gsap", get_template_directory_uri() . '/js/gsap.min.js', array('jquery'), 'null', true);
-    wp_enqueue_script("plugin", get_template_directory_uri() . '/js/MotionPathPlugin.min.js', array('jquery'), 'null', true);
+    
+    wp_enqueue_script('aos', "https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js", array('jquery'), '8', true );
+    wp_enqueue_script("swipe-js", "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js", array('jquery'), '8', true);
+    wp_enqueue_script("gsap", get_template_directory_uri() . '/js/gsap.min.js', array(), '3.9.0', true);
+    wp_enqueue_script("plugin", get_template_directory_uri() . '/js/MotionPathPlugin.min.js', array('gsap'), '3.9.0', true);
     wp_enqueue_script("select", get_template_directory_uri() . '/js/custom-select.min.js', array('jquery'), 'null', true);
-    wp_enqueue_script("app", get_template_directory_uri() . '/js/app.min.js', array('jquery'), 'null', true);
+    wp_enqueue_script("app", get_template_directory_uri() . '/js/app.js', array('jquery'), 'null', true);
 });
 
 if(function_exists('acf_add_options_page')){

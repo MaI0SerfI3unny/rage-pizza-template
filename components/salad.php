@@ -1,4 +1,4 @@
-<div class="product_container">
+<div data-aos="fade-up" class="product_container">
     <div class="container">
         <h2>Cалати</h2>
         <div class="product_list">

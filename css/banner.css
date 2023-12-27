@@ -1,0 +1,110 @@
+.banner{
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    margin-bottom: 85px;
+}
+
+.banner_hand_left,
+.banner_hand_right{
+    position: absolute;
+}
+
+.banner_hand_left{
+    left: 0;
+}
+
+.banner_hand_right{
+    right: 0;
+}
+
+.banner_container_logo{
+    display: flex;
+    justify-content: center;
+    margin-bottom: -120px;
+}
+
+.banner_container_main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.banner_container .banner_logo_main{
+    max-width: 800px;
+}
+
+.btn_banner{
+    position: absolute;
+    top:14%;
+    right: 14%;
+
+}
+
+.btn_banner button{
+    cursor: pointer;
+    border: none;
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px; 
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 241.418px;
+    height: 151.479px;
+    background: url("../img/layer/banner_btn.svg");
+}
+
+.btn_banner div{
+    margin-bottom: -12px;
+}
+
+.btn_banner span {
+    display: inline-block;
+    transform: rotate(355deg);
+    max-width: 145px;
+    text-align: left;
+    margin-left: 8px;
+}
+
+@media (max-width:1200px) {
+    .banner_logo_text{
+        width: 100%;
+    }
+}
+
+@media (max-width:800px) {
+    .banner_container .banner_logo_main{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner_container_logo{
+        margin-bottom: 0;
+    }
+
+    .product_container{
+        .container{
+            max-width: fit-content;
+        }
+    }
+}
+
+@media (max-width: 581px) {
+    .banner_hand_left,
+    .banner_hand_right{
+        display: none;
+    }
+
+    .banner_container{
+        margin: 15px;
+    }
+    
+    .banner .container{
+        max-width: fit-content;
+    }
+}
