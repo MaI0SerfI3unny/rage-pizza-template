@@ -12,7 +12,8 @@ add_action('wp_enqueue_scripts', function(){
     wp_enqueue_style('banner-style', get_template_directory_uri() . '/css/banner.css' );
     wp_enqueue_style('tabs-style', get_template_directory_uri() . '/css/tabs.css' );
     wp_enqueue_style('aos-style', get_template_directory_uri() . '/css/aos.css' );
-
+    wp_enqueue_style('page-style', get_template_directory_uri() . '/css/page.css' );
+    wp_enqueue_style('single-style', get_template_directory_uri() . '/css/single.css' );
     // Enqueue external styles and scripts
     wp_enqueue_style('swiper', "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" );
     
@@ -46,8 +47,6 @@ if ( ! defined( 'ABSPATH' ) ){
 }
 
 add_filter( 'show_admin_bar', '__return_false' );
-
-add_action( 'login_head', 'my_custom_login_logo' );
 
 add_filter( 'upload_mimes', 'svg_upload_allow' );
 function svg_upload_allow( $mimes ) {

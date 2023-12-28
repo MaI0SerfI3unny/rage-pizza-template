@@ -1,0 +1,59 @@
+
+.page_category h2{
+    color: #00A8FF;
+    text-align: center;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 64px;
+}
+
+.product_list_category {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product_item_category {
+    margin-bottom: 56px;
+}
+
+.product_list_category{
+    .product_item_category{
+        width: 24%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .product_item_category{
+        width: 49% !important;
+        max-width: fit-content !important;
+    }
+
+    .product_list_category{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width:768px) {
+    .page_category .container{
+        max-width: fit-content;
+    }
+}
+
+@media (max-width: 600px) {
+    .product_item_category{
+        width: 100% !important;
+        max-width: fit-content !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .page_category .container{
+        padding: 0;
+    }
+}

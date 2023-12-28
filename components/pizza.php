@@ -1,3 +1,27 @@
+<?php
+    $slug_one = 'pizza-20';
+    $slug_two = 'pizza-30';
+
+    $slug_sanitized_one = sanitize_title($slug_one);
+    $slug_sanitized_two = sanitize_title($slug_two);
+
+    $pizza_small = get_term_by('slug', $slug_sanitized_one, 'product_cat');
+    $pizza_big = get_term_by('slug', $slug_sanitized_two, 'product_cat');
+
+    $pizza_small_id = $pizza_small->term_id;
+    $pizza_big_id = $pizza_big->term_id;
+    
+    $pizza_small_url = get_category_link($pizza_small_id);
+    $pizza_big_url = get_category_link($pizza_big_id);
+
+    $loop_one = new WP_Query(array(
+        'post_type' => 'product',
+        'posts_per_page' => 4,
+        'product_cat' => $slug_one,
+    ));
+?>
+
+
 <div data-aos="fade-up" class="product_container">
     <div class="container">
         <div class="upper_head_panel">
@@ -11,181 +35,118 @@
 <div class="content-container">
     <div class="tab-content" id="tab1">
         <div class="product_list">
+            <?php while ($loop_one->have_posts()) : $loop_one->the_post(); ?>
                 <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic1.png">
-                        <p class="product_title">вегетаріанська</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
+                    <a href="<?php echo get_permalink(); ?>">
+                        <div class="product_list_subcontainer">
+                            <?php the_post_thumbnail(); ?>
+                            <p class="product_title"><?php the_title(); ?></p>
+                            <div class="product_more_info">
+                                <?php echo get_the_excerpt(); ?>
                             </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                        <div class="product_special_container">
-                            <img src="<?php bloginfo('template_url'); ?>/img/icons/vegan.svg">
-                        </div>
-                    </div>
-                </div>
+                            <div class="product_additional_info">
+                                <div class="product_info">
+                                        <?php
+                                        $regular_price = get_post_meta(get_the_ID(), '_regular_price', true);
+                                        $sale_price = get_post_meta(get_the_ID(), '_sale_price', true);
 
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic2.png">
-                        <p class="product_title">пепероні</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
+                                        if ($sale_price && $regular_price > $sale_price) {
+                                            echo '<p class="product_regular_price">' . esc_html($regular_price) . '</p>';
+                                            echo '<p class="product_price">' . esc_html($sale_price) . ' <span>грн</span></p>';
+                                        } else {
+                                            echo '<p class="product_price">' . esc_html($regular_price) . ' <span>грн</span></p>';
+                                        } ?>
+                                    <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
+                                </div>
+                                <div class="product_buy_panel">
+                                    <button>В корзину</button>
+                                </div>
                             </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
+        
+                            <div class="product_special_container">
+                                <?php 
+                                    $tags = get_the_terms(get_the_ID(), 'product_tag');
+                                    foreach ($tags as $tag) :
+                                        if(esc_html($tag->name) === "Вегетаріанська"){ ?>
+                                        <img src="<?php bloginfo('template_url'); ?>/img/icons/vegan.svg">
+                                    <?php }
+                                        if(esc_html($tag->name) === "Гостра"){ ?>
+                                        <img src="<?php bloginfo('template_url'); ?>/img/icons/hot_food.svg">
+                                    <?php }
+                                        endforeach; ?>
                             </div>
                         </div>
-                    
-                        <div class="product_special_container">
-                            <img src="<?php bloginfo('template_url'); ?>/img/icons/hot_food.svg">
-                        </div>
-                    </div>
+                    </a>
                 </div>
-
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic3.png">
-                        <p class="product_title">кебаб</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic3.png">
-                        <p class="product_title">маргарита</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <?php
+                endwhile;
+                wp_reset_postdata(); ?>
             </div>
         </div>
     <div class="tab-content" id="tab2">
     <div class="product_list">
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic1.png">
-                        <p class="product_title">вегетаріанська</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                        <div class="product_special_container">
-                            <img src="<?php bloginfo('template_url'); ?>/img/icons/vegan.svg">
-                        </div>
-                    </div>
-                </div>
+            <?php
+                $loop_two = new WP_Query(array(
+                    'post_type' => 'product',
+                    'posts_per_page' => 4,
+                    'product_cat' => $slug_two,
+                ));
 
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic2.png">
-                        <p class="product_title">пепероні</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                    
-                        <div class="product_special_container">
-                            <img src="<?php bloginfo('template_url'); ?>/img/icons/hot_food.svg">
-                        </div>
-                    </div>
-                </div>
+                while ($loop_two->have_posts()) : $loop_two->the_post(); ?>
+                    <div class="product_list_item">
+                            <a href="<?php echo get_permalink(); ?>">
+                                <div class="product_list_subcontainer">
+                                    <?php the_post_thumbnail(); ?>
+                                    <p class="product_title"><?php the_title(); ?></p>
+                                    <div class="product_more_info">
+                                        <?php echo get_the_excerpt(); ?>
+                                    </div>
+                                    <div class="product_additional_info">
+                                        <div class="product_info">
+                                                <?php
+                                                $regular_price = get_post_meta(get_the_ID(), '_regular_price', true);
+                                                $sale_price = get_post_meta(get_the_ID(), '_sale_price', true);
 
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic3.png">
-                        <p class="product_title">кебаб</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
+                                                if ($sale_price && $regular_price > $sale_price) {
+                                                    echo '<p class="product_regular_price">' . esc_html($regular_price) . '</p>';
+                                                    echo '<p class="product_price">' . esc_html($sale_price) . ' <span>грн</span></p>';
+                                                } else {
+                                                    echo '<p class="product_price">' . esc_html($regular_price) . ' <span>грн</span></p>';
+                                                } ?>
+                                            <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
+                                        </div>
+                                        <div class="product_buy_panel">
+                                            <button>В корзину</button>
+                                        </div>
+                                    </div>
+                
+                                    <div class="product_special_container">
+                                        <?php 
+                                            $tags = get_the_terms(get_the_ID(), 'product_tag');
+                                            foreach ($tags as $tag) :
+                                                if(esc_html($tag->name) === "Вегетаріанська"){ ?>
+                                                <img src="<?php bloginfo('template_url'); ?>/img/icons/vegan.svg">
+                                            <?php }
+                                                if(esc_html($tag->name) === "Гостра"){ ?>
+                                                <img src="<?php bloginfo('template_url'); ?>/img/icons/hot_food.svg">
+                                            <?php }
+                                                endforeach; ?>
+                                    </div>
+                                </div>
+                            </a>
                     </div>
-                </div>
-
-                <div class="product_list_item">
-                    <div class="product_list_subcontainer">
-                        <img src="<?php bloginfo('template_url'); ?>/img/products/pizza/pic3.png">
-                        <p class="product_title">маргарита</p>
-                        <div class="product_more_info">
-                            <span>20см\350г</span> ТоМАТНА ОСНОВА, СОУС ШРІРАЧА, МОЦАРЕЛА, САЛЯМІ ПАПЕРОНІ
-                        </div>
-                        <div class="product_additional_info">
-                            <div class="product_info">
-                                <p class="product_price">228 <span>грн</span></p>
-                                <p class="product_weight">450 <span>г</span></p>
-                            </div>
-                            <div class="product_buy_panel">
-                                <button>В корзину</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                    endwhile;
+                    wp_reset_postdata(); ?>
             </div>
         </div>
     </div>
 </div>
 
         <div class="more_container">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/icons/eye.svg" alt="more button"><span>Дивитись всі</span></a>
+            <a href="<?php echo esc_url($pizza_small_url); ?>">
+                <img src="<?php bloginfo('template_url'); ?>/img/icons/eye.svg" alt="more button"><span>Дивитись всі</span>
+            </a>
         </div>
     </div>
 </div>

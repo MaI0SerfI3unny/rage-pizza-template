@@ -1,5 +1,18 @@
-<html>
+<?php 
+$args = array(
+  'taxonomy'     => 'product_cat',
+  'orderby'      => 'name',
+  'show_count'   => 0,
+  'pad_counts'   => 0,
+  'exclude'      => get_option('default_product_cat'),
+  'hierarchical' => 1,
+  'title_li'     => '',
+  'hide_empty'   => 0,
+);
 
+$categories = get_categories($args); ?>
+
+<html>
 <head>
   <meta charset="<?php bloginfo('charset'); ?>">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +41,7 @@
       </div>
     </div>
     <div class="header_logo">
-      <img src="<?php bloginfo('template_url'); ?>/img/logo.svg" alt="logo">
+      <a href="/"><img src="<?php bloginfo('template_url'); ?>/img/logo.svg" alt="logo"></a>
     </div>
     <div class="header_bucket">
         <a href="">Умови доставки</a>
@@ -46,53 +59,28 @@
 
     <div class="container category">
     <div class="category_container">
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/discount.svg"> Акції</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/sets.svg">Сети</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/pizza20.svg">Піца 20 см</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/pizza30.svg">Піца 30 см</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/salad.svg">Салати</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/drinks.svg">Напої</a>
-          </div>
-          <div class="category_list_item">
-            <a href=""><img src="<?php bloginfo('template_url'); ?>/img/category/additional.svg">Додатки</a>
-          </div>
+          <?php foreach ($categories as $category) {
+                $thumbnail_id = get_woocommerce_term_meta($category->term_id, 'thumbnail_id', true);
+                $image = wp_get_attachment_url($thumbnail_id);
+            ?>
+            <div class="category_list_item">
+              <a href="<?php echo get_category_link($category->term_id); ?>">
+                <img src="<?php echo $image; ?>"> <?php echo $category->name; ?>
+              </a>
+            </div>          
+          <?php } ?>
     </div>
 
     <div class="hamburger-menu">
       <input id="menu__toggle" type="checkbox" />
       <ul class="menu__box">
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/discount.svg"> Акції
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/sets.svg">Сети
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/pizza20.svg">Піца 20 см
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/pizza30.svg">Піца 30 см
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/salad.svg">Салати
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/drinks.svg">Напої
-        </a></li>
-        <li><a class="menu__item" href="#">
-          <img src="<?php bloginfo('template_url'); ?>/img/category/additional.svg">Додатки
-        </a></li>
+        <?php foreach ($categories as $category) {
+                $thumbnail_id = get_woocommerce_term_meta($category->term_id, 'thumbnail_id', true);
+                $image = wp_get_attachment_url($thumbnail_id);?>
+          <li><a class="menu__item" href="<?php echo get_category_link($category->term_id); ?>">
+            <img src="<?php echo $image; ?>"> <?php echo $category->name; ?>
+          </a></li>
+        <?php } ?>
 
         <div class="header_starter">
           <div>
