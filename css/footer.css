@@ -21,6 +21,11 @@ footer{
         a{
             margin-right: 20px;
         }
+        a:hover{
+            background: #00A8FF;
+            border-radius: 100%;
+            transition: 0.5s;
+        }
         a:last-child{
             margin-right: 0px;
         }
@@ -33,6 +38,12 @@ footer{
         font-weight: 400;
         line-height: 30px;
     }
+    .info_footer a:hover,
+    .address a:hover{
+        color:#00A8FF;
+        transition: 0.5s;
+    }
+   
     .info_footer{
         display: block;
     }

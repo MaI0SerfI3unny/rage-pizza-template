@@ -142,6 +142,139 @@
         text-transform: uppercase;
     }
 }
+.single_size_container{
+    margin-bottom: 48px;
+    .single_size_container_title{
+        color: #FFF;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+    }
+    .single_size_subcontainer{
+        display: flex;
+        .size_container_item{
+            cursor: pointer;
+            width: 218px;
+            height: 94px;
+            border-radius: 12px;
+            border: 1px solid #00A8FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.02);
+            margin-right: 32px;
+            img{
+                margin-right: 12px;
+            }
+            .size_characteristics{
+                border-radius: 64px;
+                background: #00A8FF;
+                display: flex;
+                align-items: center;
+                padding: 6px 12px;
+                p{
+                    color: #FFF;
+                    font-family: 'Yanone Kaffeesatz', sans-serif;
+                    font-size: 24px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    display: flex;
+                    span{
+                        color: #FFF;
+                        margin-left: 5px;
+                        font-family: 'Inter', sans-serif;
+                        font-size: 10px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+                }
+                p:first-child{
+                    align-items: baseline;
+                }
+                p:last-child{
+                    align-items: flex-start;
+                }
+                .line{
+                    margin-left: 5px;
+                    margin-right: 5px;
+                }
+            }
+        }
+        .size_container_item:last-child{
+            margin-right: 0;
+        }
+
+    }
+}
+
+.souce_container_chooser{
+    .souce_container_chooser_head{
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        span{
+            border-radius: 64px;
+            background: #FF2C2C;
+            padding: 6px 12px;
+            max-width: 144px;
+            width: 100%;
+            color: #FFF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .souce_container_chooser_title{
+            color: #FFF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 36px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+    }
+    .souce_chooser_desc{
+        color: #6B6B6B;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 19px;
+        margin-bottom: 32px;
+    }
+    .souce_item{
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+        max-width: 498px;
+        width: 100%;
+        div{
+            width: 50%;
+        }
+        div:first-child{
+            color: #FFF;
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 19px;
+        }
+        div:last-child{
+            display: flex;
+            justify-content: flex-end;
+            color:  #00A8FF;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+}
 
 @media (max-width:1400px) {
     .single_panel_container{

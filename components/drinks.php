@@ -16,7 +16,10 @@
     <div class="container">
         <h2>НАПОЇ</h2>
         <div class="product_list">
-            <?php while ($loop->have_posts()) : $loop->the_post(); ?>
+            <?php while ($loop->have_posts()) : $loop->the_post(); 
+                global $product;
+                $product_id = $product->get_id();
+            ?>
             <div class="product_list_item">
                             <a href="<?php echo get_permalink(); ?>">
                                 <div class="product_list_subcontainer">
@@ -40,7 +43,7 @@
                                             <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
                                         </div>
                                         <div class="product_buy_panel">
-                                            <button>В корзину</button>
+                                            <button class="add-to-cart-button" data-product-id="<?php echo esc_attr(get_the_ID()); ?>">В кошик</button>
                                         </div>
                                     </div>
                 

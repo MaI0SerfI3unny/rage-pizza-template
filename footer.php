@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col address">
                 <p class="footer_title">Контакти</p>
-                <a href="">проспект Перемоги, Київ, Україна</a>
-                <a href="">+380689113503</a>
+                <a target="_blank" href="https://maps.google.com?q=проспект Перемоги, Київ, Україна">проспект Перемоги, Київ, Україна</a>
+                <a target="_blank" href="tel:+380689113503">+380689113503</a>
             </div>
             <div class="col time_work">
                 <p class="footer_title">Графік роботи</p>

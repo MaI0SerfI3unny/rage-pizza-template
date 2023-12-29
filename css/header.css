@@ -30,6 +30,9 @@ header{
     .header_bucket{
         display: flex;
         align-items: center;
+        label{
+            cursor: pointer;
+        }
         .bucket{
             cursor: pointer;
             position: relative;
@@ -50,6 +53,10 @@ header{
                 justify-content: center;
                 align-items: center;
             }
+        }
+        a:hover{
+            color: #00A8FF;
+            transition: 0.5s;
         }
     }
 
@@ -76,6 +83,7 @@ header{
 }
 
 .header_bucket{
+    z-index: 2;
     max-width: 278px;
     width: 100%;
     display: flex;
@@ -87,7 +95,8 @@ header{
 }
 
 /*----------------------------BURGER-----------------------------------*/
-#menu__toggle {
+#menu__toggle,
+#cart__toggle {
     opacity: 0;
   }
 
@@ -131,7 +140,7 @@ header{
     padding: 80px 0;
     list-style: none;
     text-align: center;
-    background-color: black;
+    background: #0E0E0E;
     box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 }
 
@@ -172,10 +181,164 @@ header{
     position: relative;
     display: none;
   }
+
+    .menu__box_cart{
+        z-index: 1;
+        display: block;
+        position: fixed;
+        visibility: hidden;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 627px;
+        height: 100%;
+        margin: 0;
+        padding-top: 80px;
+        padding-left: 21px;
+        padding-right: 21px;
+        list-style: none;
+        background: #0E0E0E;
+        box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+        .menu__box_cart_title{
+            margin-top: 41px;
+            color: #00A8FF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 48px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .btn_create_order{
+            width: 100%;
+            max-width: 498px;
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-radius: 8px;
+            background: #00A8FF;
+            justify-content: center;
+            color: #FFF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 32px;
+        }
+        .cart_product_container_list{
+            max-width: 498px;
+            min-height: 50vh;
+            max-height: 5rem;
+            overflow-y: scroll;
+            border-top: 1px solid #1F1F1F;
+        }
+    }
+  
+    .menu__box_cart, 
+    .menu__box{
+        transition-duration: .25s;
+    }
+      
+
+  #cart__toggle:checked ~ .menu__box_cart{
+    visibility: visible;
+    right: 0;
+  }
 /*----------------------------BURGER END-----------------------------------*/
 
+.product_in_cart_item{
+    display: flex;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    .product_in_cart_item_img{
+        border-radius: 12px;
+        margin-right: 19px;
+        min-width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        border: 1px solid rgba(107, 107, 107, 0.20);
+        background: linear-gradient(232deg, rgba(107, 107, 107, 0.08) 0.46%, rgba(107, 107, 107, 0.00) 100%);
+        img{
+            width: 100%;
+            max-width: 70px;
+        }
+    }
 
+    .product_in_cart_item_info{
+        width: 100%;
+    }
 
+    .product_in_cart_item_info_head_title{
+        color: #FFF;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    .product_in_cart_item_info_head_desc{
+        color: #6B6B6B;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 19px; 
+    }
+
+    .product_in_cart_item_panel{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .cart_item_panel{
+            width: 100%;
+            max-width: 119px;
+            justify-content: space-between;
+            display: flex;
+            align-items: center;
+            border-radius: 24px;
+            background: #1F1F1F;
+            color: #FFF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            p{
+                padding: 12px;
+            }
+            p:first-child,
+            p:last-child{
+                cursor: pointer;
+            }
+            p:first-child{
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            p:last-child{
+                border-left: 1px solid rgba(255, 255, 255, 0.08);
+            }
+        }
+        .cart_item_price{
+            margin-left: 16px;
+            color: #FFF;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            text-transform: uppercase;
+            display: flex;
+            align-items: flex-start;
+            span{
+                color: #FFF;
+                font-family: 'Inter', sans-serif;
+                font-size: 12px;
+                font-weight: 500;
+            }
+        }
+    }
+}
 
 @media (max-width:992px) {
 

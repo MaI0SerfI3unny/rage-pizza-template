@@ -1,0 +1,51 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 511px;
+    margin-bottom: 32px;
+}
+
+.dropdown button{
+    width: 100%;
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    height: 48px;
+    border-radius: 8px;
+    border: 1px solid #1F1F1F;
+    background: #1F1F1F;
+}
+
+#dropdownBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dropdownList {
+    width: 100%;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+#dropdownList li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#dropdownList li:hover {
+    background-color: #f0f0f0;
+}

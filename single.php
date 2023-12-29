@@ -7,6 +7,13 @@ $regular_price = get_post_meta($product_id, '_regular_price', true);
 $sale_price = get_post_meta($product_id, '_sale_price', true);
 
 $product_tags = wp_get_post_terms($product_id, 'product_tag');
+
+$pizza_bool = false;
+foreach ($product_tags as $tag){
+    if(esc_html($tag->name) === "Піца"){
+        $pizza_bool = true;
+    }
+}
 get_header() ?>
 <main>
     <div class="single">
@@ -50,9 +57,75 @@ get_header() ?>
                     
                             </div>
                             <div>
-                                <button>В кошик</button>  
+                                <button class="add-to-cart-button" data-product-id="<?php echo esc_attr(get_the_ID()); ?>">В кошик</button>  
                             </div>
                         </div>
+
+                        <?php if($pizza_bool): ?>
+                            <div class="single_size_container">
+                                <p class="single_size_container_title">Розмір</p>
+                                <div class="single_size_subcontainer">
+                                    <div class="size_container_item">
+                                        <img src="<?php bloginfo('template_url'); ?>/img/size/small.png">
+                                        <div class="size_characteristics">
+                                            <p>20 <span>см </span></p>
+                                            <p class="line">/</p>
+                                            <p>450 <span>г</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="size_container_item">
+                                        <img src="<?php bloginfo('template_url'); ?>/img/size/big.png">
+                                        <div class="size_characteristics">
+                                            <p>30 <span>см </span></p>
+                                            <p class="line">/</p>
+                                            <p>650 <span>г</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="souce_container_chooser">
+                                <div class="souce_container_chooser_head">
+                                    <p class="souce_container_chooser_title">СОУСИ ДО БОРТИКІВ</p>
+                                    <span>ОБОВ'ЯЗКОВИЙ</span>
+                                </div>
+                                <p class="souce_chooser_desc">Виберіть до 1 доповнень</p>
+
+                                <div class="souce_item">
+                                    <div>
+                                        <label class="checkbox-custom">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span> ТРЮФЕЛЬНИЙ, 50 г
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <p>+1 UAH</p>
+                                    </div>
+                                </div>
+                                <div class="souce_item">
+                                    <div>
+                                        <label class="checkbox-custom">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span> Сирний, 50 г
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <p>+1 UAH</p>
+                                    </div>
+                                </div>
+                                <div class="souce_item">
+                                    <div>
+                                        <label class="checkbox-custom">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span> Тар-тар, 50 г
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <p>+1 UAH</p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
             </div>
         </div>
@@ -115,7 +188,7 @@ get_header() ?>
                                                     <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
                                                 </div>
                                                 <div class="product_buy_panel">
-                                                    <button>В корзину</button>
+                                                    <button class="add-to-cart-button" data-product-id="<?php echo esc_attr(get_the_ID()); ?>">В кошик</button>
                                                 </div>
                                             </div>
                         
