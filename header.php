@@ -55,13 +55,13 @@ if (is_tax('product_cat')) {
     <div class="header_bucket">
         <a href="">Умови доставки</a>
         <div class="bucket">
-          <label for="cart__toggle">
-            <img src="<?php bloginfo('template_url'); ?>/img/icons/boxes.svg" alt="bucket">
+          <label class="internal-element" for="cart__toggle">
+            <img id="cartBtn" src="<?php bloginfo('template_url'); ?>/img/icons/boxes.svg" alt="bucket">
             <span class="cart-item-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
           </label>
         </div>
         <div class="menu__btn_container">
-        <label class="menu__btn" for="menu__toggle">
+        <label id="menuBtn" class="menu__btn internal-element" for="menu__toggle">
           <span></span>
         </label>
       </div>
@@ -85,11 +85,11 @@ if (is_tax('product_cat')) {
     <div class="hamburger-menu">
       <input id="cart__toggle" type="checkbox" />
       <ul class="menu__box_cart">
-        <p class="menu__box_cart_title">Кошик </p>
+        <p class="menu__box_cart_title" >Кошик </p>
         <div class="cart_product_container_list cart-contents">
 
         </div>
-        <a href="/checkout" class="btn_create_order">Замовити</a>
+        <a href="/cart" class="btn_create_order">Замовити</a>
       </ul>
     </div>
 

@@ -40,7 +40,7 @@
                                                 } else {
                                                     echo '<p class="product_price">' . esc_html($regular_price) . ' <span>грн</span></p>';
                                                 } ?>
-                                            <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
+                                            <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>л</span></p>
                                         </div>
                                         <div class="product_buy_panel">
                                             <button class="add-to-cart-button" data-product-id="<?php echo esc_attr(get_the_ID()); ?>">В кошик</button>

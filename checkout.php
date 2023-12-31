@@ -20,21 +20,49 @@ Template Name: checkout
                         <li data-value="доставка">Доставка</li>
                     </ul>
                 </div>
-                <div></div>
-                <p class="input_checkout_title">Адреса та номер будинку</p>
-                <input>
-                <p class="input_checkout_title">Коментар до адреси:</p>
-                <input placeholder="Під’їзд/ поверх/ номер квартири/ інше">
-                <p class="input_checkout_title">Ваше ім'я<span>*</span></p>
-                <input>
-                <p class="input_checkout_title">Телефон<span>*</span></p>
-                <input type="tel" id="phone" name="phone" data-default-country="ua">
-                <div id="phone-widget"></div>
-                <p class="input_checkout_title">Коментар до замовлення</p>
-                <textarea placeholder="Ввведіть коментар до замовлення"></textarea>
+                <div class="container_input">
+                    <p class="input_checkout_title">Адреса та номер будинку</p>
+                    <input id="address">
+                </div>
+
+                <div class="container_input">
+                    <p class="input_checkout_title">Коментар до адреси:</p>
+                    <input id="comment_to_address" placeholder="Під’їзд/ поверх/ номер квартири/ інше">
+                </div>
+               
+               
+                <div class="container_input">
+                    <p class="input_checkout_title">Ваше ім'я<span>*</span></p>
+                    <input id="name">
+                    <p id="name_check" class="attention_error">Необхідне поле</p>
+                </div>
+                
+                <div class="container_input">
+                    <p class="input_checkout_title">Телефон<span>*</span></p>
+                    <input type="tel" id="phone" name="phone" data-default-country="ua">
+                    <p id="phone_check" class="attention_error">Необхідне поле</p>
+                </div>
+                
+                <div class="container_input">
+                    <div id="phone-widget"></div>
+                </div>
+                
+                <div class="container_input">
+                    <p class="input_checkout_title">Коментар до замовлення</p>
+                    <textarea id="comment_to_order" placeholder="Ввведіть коментар до замовлення"></textarea>
+                </div>
+
             </div>
             <div class="checkout_container_list">
                 <p class="checkout_container_list_title">Кошик</p>
+                <div class="cart_product_container_list cart-contents"></div>
+                <p class="total_price">Всього: <span class="total_price_main"> 0<span>грн</span></span></p>
+
+                <div class="container_submit">
+                    <button id="create_order_btn" class="btn_order submit-order-button">Оформити замовлення</button>
+                    <p id="product_check" class="attention_error_btn">Кошик пустий. Необхідно обрати товари</p>
+                </div>
+
             </div>
         </div>
     </div>

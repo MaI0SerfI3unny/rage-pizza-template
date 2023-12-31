@@ -43,7 +43,6 @@
     input,
     textarea{
         outline: none;
-        margin-bottom: 32px;
     }
 
     input{
@@ -93,7 +92,6 @@
 
 
 .iti{
-    margin-bottom: 32px;
     width: 100%;
     .iti__flag-container{
         background: #1F1F1F;
@@ -103,4 +101,99 @@
     .iti__selected-dial-code{
         color: white;
     }
+}
+
+
+.btn_order{
+    margin-top: 24px;
+    border-radius: 8px;
+    background: #00A8FF;
+    width: 100%;
+    height: 56px;
+    color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+.total_price{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 54px;
+    .total_price_main{
+        margin-left: 5px;
+        color: #00A8FF;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        text-transform: uppercase;
+        display: flex;
+        align-items: flex-start;
+        span{
+            color: #00A8FF;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px ;
+            font-weight: 500;
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    .checkout_container_list{
+        padding: 10px;
+    }
+}
+
+@media (max-width:1000px) {
+    .checkout_container{
+        display: block;
+    }
+
+    .checkout_container_list{
+        padding: 0px;
+    }
+
+    .checkout
+    input,
+    .checkout
+    textarea,
+    .checkout_container
+    .checkout_container_list{
+        max-width: 100%;
+    }
+
+    .checkout{
+        width: auto;
+
+    }
+
+    main{
+        padding-top: 8rem;
+    }
+}
+
+.container_input{
+    margin-bottom: 24px;
+}
+
+.container_submit{
+    padding-bottom: 93px;
+}
+
+.attention_error,
+.attention_error_btn{
+    display: none;
+    color: red;
+    font-size: 11px;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 32px;
 }

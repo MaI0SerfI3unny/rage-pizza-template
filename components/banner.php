@@ -9,8 +9,8 @@
             </div>
             <div class="banner_container_main">
                 <div class="btn_banner">
-                    <a href="">
-                        <button>
+                    <a>
+                        <button id="go_to_menu">
                             <div>
                                 <img src="<?php bloginfo('template_url'); ?>/img/icons/banner_btn_cool.svg">
                             </div>

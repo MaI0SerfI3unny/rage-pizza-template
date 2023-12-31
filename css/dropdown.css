@@ -49,3 +49,9 @@
 #dropdownList li:hover {
     background-color: #f0f0f0;
 }
+
+@media (max-width:1000px) {
+    .dropdown{
+        max-width: 100%;
+    }
+}

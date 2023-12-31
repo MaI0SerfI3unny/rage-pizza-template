@@ -12,7 +12,7 @@
     );
     $loop = new WP_Query($args); ?>
 
-<div data-aos="fade-up" class="product_container">
+<div id="menus" data-aos="fade-up" class="product_container">
     <div class="container">
         <h2>Акції</h2>
         <div class="product_list_flex">

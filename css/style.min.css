@@ -73,3 +73,45 @@ main{
   padding-top: 13rem;
 }
 
+
+
+.success_page{
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .success_container{
+    text-align: center;
+    max-width: 320px;
+    width: 100%;
+  }
+  img{
+    width: 100px;
+    margin-bottom: 30px;
+  }
+  p{
+    font-size: 30px;
+    line-height: 29px;
+    color: white;
+    font-weight: 500;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    
+  }
+  button{
+    width: 240px;
+    height: 49px;
+    border-radius: 24px;
+    background: transparent;
+    border: 1px solid green;
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  button:hover{
+    transition: 0.5s;
+    background: green;
+    cursor: pointer;
+  }
+}

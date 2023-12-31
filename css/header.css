@@ -79,6 +79,10 @@ header{
         img{
             margin-right: 10px;
         }
+        a:hover{
+            transition: 0.5s;
+            color: #00A8FF;
+        }
     }
 }
 
@@ -137,7 +141,7 @@ header{
     width: 300px;
     height: 100%;
     margin: 0;
-    padding: 80px 0;
+    padding: 95px 0;
     list-style: none;
     text-align: center;
     background: #0E0E0E;
@@ -248,8 +252,38 @@ header{
 .product_in_cart_item{
     display: flex;
     padding-top: 24px;
+    position: relative;
     padding-bottom: 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    .product_in_cart_item_info_head{
+        display: flex;
+        justify-content: space-between;
+        .product_in_cart_gram{
+            padding: 2px 6px;
+            border-radius: 64px;
+            background: rgba(255, 255, 255, 0.20);
+            width: 83px;
+            height: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p{
+                color: #FFF;
+                font-family: 'Yanone Kaffeesatz', sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: uppercase;
+                span{
+                    font-family: 'Inter', sans-serif;
+                    font-size: 8px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    .product_in_cart_item_info_head_title{
+        margin-top: 12px;
+    }
     .product_in_cart_item_img{
         border-radius: 12px;
         margin-right: 19px;
@@ -316,9 +350,22 @@ header{
             p:first-child{
                 border-right: 1px solid rgba(255, 255, 255, 0.08);
             }
-
             p:last-child{
                 border-left: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            p:first-child:hover,
+            p:last-child:hover{
+                background: white;
+                transition: 0.5s;
+                color: #0E0E0E;                
+            }
+            p:first-child{
+                border-top-left-radius: 24px;
+                border-bottom-left-radius: 24px;
+            }
+            p:last-child{
+                border-top-right-radius: 24px;
+                border-bottom-right-radius: 24px;
             }
         }
         .cart_item_price{
