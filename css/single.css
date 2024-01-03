@@ -154,6 +154,9 @@
     }
     .single_size_subcontainer{
         display: flex;
+        .size_container_item_link{
+            margin-right: 32px;
+        }
         .size_container_item{
             cursor: pointer;
             width: 218px;
@@ -255,11 +258,10 @@
         margin-bottom: 24px;
         max-width: 498px;
         width: 100%;
-        div{
-            width: 50%;
-        }
+
         div:first-child{
             color: #FFF;
+            width: 70%;
             font-family: 'Inter', sans-serif;
             font-size: 18px;
             font-weight: 400;
@@ -267,6 +269,7 @@
         }
         div:last-child{
             display: flex;
+            width: 30%;
             justify-content: flex-end;
             color:  #00A8FF;
             font-family: 'Inter', sans-serif;

@@ -61,26 +61,41 @@ get_header() ?>
                             </div>
                         </div>
 
-                        <?php if($pizza_bool): ?>
+                        <?php if($pizza_bool):
+                                $url = get_permalink();
+                                $lastSegment = basename(parse_url($url, PHP_URL_PATH));
+                                $decodedSegment = urldecode($lastSegment);
+                                list($pizza_name, $pizza_length) = explode("-", $decodedSegment);
+                                $product_similar = get_page_by_path(($pizza_name . "-" . ($pizza_length == 20 ? "30":"20")), OBJECT, 'product');
+                            ?>                                
                             <div class="single_size_container">
                                 <p class="single_size_container_title">Розмір</p>
                                 <div class="single_size_subcontainer">
-                                    <div class="size_container_item">
-                                        <img src="<?php bloginfo('template_url'); ?>/img/size/small.png">
-                                        <div class="size_characteristics">
-                                            <p>20 <span>см </span></p>
-                                            <p class="line">/</p>
-                                            <p>450 <span>г</span></p>
+                                    <a class="size_container_item_link" href="<?php echo get_permalink(); ?>">
+                                        <div class="size_container_item">
+                                                <img src="<?php bloginfo('template_url'); ?>/img/size/small.png">
+                                                <div class="size_characteristics">
+                                                    <p><?php echo $pizza_length; ?> <span>см </span></p>
+                                                    <p class="line">/</p>
+                                                    <p> <?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
+                                                </div>
                                         </div>
-                                    </div>
-                                    <div class="size_container_item">
-                                        <img src="<?php bloginfo('template_url'); ?>/img/size/big.png">
-                                        <div class="size_characteristics">
-                                            <p>30 <span>см </span></p>
-                                            <p class="line">/</p>
-                                            <p>650 <span>г</span></p>
-                                        </div>
-                                    </div>
+                                    </a>
+                                    <?php if($product_similar): 
+                                        $product_weight = get_post_meta($product_similar->ID, '_weight', true);
+                                        $product_link = get_permalink($product_similar->ID); ?>
+                                        <a class="size_container_item_link" href="<?php echo $product_link; ?>">
+                                            <div class="size_container_item">
+                                                <img src="<?php bloginfo('template_url'); ?>/img/size/big.png">
+                                                <div class="size_characteristics">
+                                                    <p><?php echo $pizza_length == 20 ? "30":"20"; ?> <span>см </span></p>
+                                                    <p class="line">/</p>
+                                                    <p><?php echo $product_weight; ?> <span>г</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <?php endif; ?>
+
                                 </div>
                             </div>
 
@@ -90,40 +105,35 @@ get_header() ?>
                                     <span>ОБОВ'ЯЗКОВИЙ</span>
                                 </div>
                                 <p class="souce_chooser_desc">Виберіть до 1 доповнень</p>
+                                <?php 
+                                    $slug = 'additional';
+                                    $slug_sanitized = sanitize_title($slug);
+                                    $category = get_term_by('slug', $slug_sanitized, 'product_cat');
+                                    $category_id = $category->term_id;
+                                    $category_url = get_category_link($category_id);
+                                    
+                                    $args = array(
+                                        'post_type' => 'product',
+                                        'product_cat' => $slug,
+                                    );
+                                    $loop = new WP_Query($args); 
+                                    while ($loop->have_posts()) : $loop->the_post(); 
+                                    $regular_price = get_post_meta(get_the_ID(), '_regular_price', true);
+                                    ?>
+                                    <div class="souce_item">
+                                        <div>
+                                            <label class="checkbox-custom">
+                                                <input class="input_souce" data-product-id="<?php echo get_the_ID(); ?>" type="checkbox">
+                                                <span class="checkmark"></span> <?php the_title(); ?>, <?php echo get_post_meta(get_the_ID(), '_weight', true); ?> г
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <p>+<?php echo $regular_price; ?> UAH</p>
+                                        </div>
+                                    </div>                                
+                                <?php endwhile; ?>
 
-                                <div class="souce_item">
-                                    <div>
-                                        <label class="checkbox-custom">
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span> ТРЮФЕЛЬНИЙ, 50 г
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <p>+1 UAH</p>
-                                    </div>
-                                </div>
-                                <div class="souce_item">
-                                    <div>
-                                        <label class="checkbox-custom">
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span> Сирний, 50 г
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <p>+1 UAH</p>
-                                    </div>
-                                </div>
-                                <div class="souce_item">
-                                    <div>
-                                        <label class="checkbox-custom">
-                                            <input type="checkbox">
-                                            <span class="checkmark"></span> Тар-тар, 50 г
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <p>+1 UAH</p>
-                                    </div>
-                                </div>
+
                             </div>
                         <?php endif; ?>
                     </div>

@@ -3,63 +3,67 @@ jQuery(document).ready(function ($) {
     $('.add-to-cart-button').on('click', function (e) {
         e.preventDefault();
         var product_id = $(this).data('product-id');
-        $.ajax({
-            type: 'POST',
-            url: custom_cart_ajax.ajax_url,
-            data: {
-                action: 'add_to_cart_action',
-                product_id: product_id
-            },
-            success: function (_) {
-                function buildCartHtml(cartContents) {
-                    var html = '';
-            
-                    $.each(cartContents, function (_, item) {
-                        html += '<div class="product_in_cart_item" data-product-id="' + item.id +'" data-quantity="' + item.quantity + '">';
-                        html += '<div class="product_in_cart_item_img">';
-                        html += '<img src="' + item.image + '">';
-                        html += '</div>';
-                        html += '<div class="product_in_cart_item_info">';
-                        html += '<div class="product_in_cart_item_info_head">';
-                        html += '<div class="product_in_cart_item_info_head_title">' + item.name + '</div>';
-                        html += '<div></div>';
-                        html += '</div>';
-                        html += '<p class="product_in_cart_item_info_head_desc">' + item.short_description + '</p>';
-                        html += '<div class="product_in_cart_item_panel">';
-                        html += '<div class="cart_item_panel">';
-                        html += '<p class="remove_from_cart">-</p>';
-                        html += '<p class="cart-item-quantity quantity">' + item.quantity + '</p>';
-                        html += '<p class="add_to_cart">+</p>';
-                        html += '</div>';
-                        html += '<div class="cart_item_price"><p>' + item.price + '</p><span>грн</span></div>';
-                        html += '</div>';
-                        html += '</div>';
-                        html += '</div>';
+        var checkedSouce = $('.input_souce:checked');
+
+            var productIdSouce = checkedSouce.data('product-id');
+            $.ajax({
+                type: 'POST',
+                url: custom_cart_ajax.ajax_url,
+                data: {
+                    action: 'add_to_cart_action',
+                    product_id: product_id,
+                    souce_id: checkedSouce.length > 0 ? productIdSouce : 0
+                },
+                success: function (_) {
+                    function buildCartHtml(cartContents) {
+                        var html = '';
+                
+                        $.each(cartContents, function (_, item) {
+                            html += '<div class="product_in_cart_item" data-product-id="' + item.id +'" data-quantity="' + item.quantity + '">';
+                            html += '<div class="product_in_cart_item_img">';
+                            html += '<img src="' + item.image + '">';
+                            html += '</div>';
+                            html += '<div class="product_in_cart_item_info">';
+                            html += '<div class="product_in_cart_item_info_head">';
+                            html += '<div class="product_in_cart_item_info_head_title">' + item.name + '</div>';
+                            html += '<div></div>';
+                            html += '</div>';
+                            html += '<p class="product_in_cart_item_info_head_desc">' + item.short_description + '</p>';
+                            html += '<div class="product_in_cart_item_panel">';
+                            html += '<div class="cart_item_panel">';
+                            html += '<p class="remove_from_cart">-</p>';
+                            html += '<p class="cart-item-quantity quantity">' + item.quantity + '</p>';
+                            html += '<p class="add_to_cart">+</p>';
+                            html += '</div>';
+                            html += '<div class="cart_item_price"><p>' + item.price + '</p><span>грн</span></div>';
+                            html += '</div>';
+                            html += '</div>';
+                            html += '</div>';
+                        });
+                    
+                        return html;
+                    }
+                    $.ajax({
+                        type: 'GET',
+                        url: custom_cart_ajax.ajax_url,
+                        data: { action: 'get_cart_item_count' },
+                        success: function (count) {
+                            $('.cart-item-count').text(count);
+                        }
                     });
-                
-                    return html;
+                    
+                    $.ajax({
+                        type: 'GET',
+                        url: custom_cart_ajax.ajax_url,
+                        data: { action: 'get_cart_contents' },
+                        success: function (cartContents) {
+                            cartContents = JSON.parse(cartContents);
+                            $('#cart__toggle').prop('checked', true);
+                            $('.cart-contents').html(buildCartHtml(cartContents));
+                        }
+                    });
                 }
-                $.ajax({
-                    type: 'GET',
-                    url: custom_cart_ajax.ajax_url,
-                    data: { action: 'get_cart_item_count' },
-                    success: function (count) {
-                        $('.cart-item-count').text(count);
-                    }
-                });
-                
-                $.ajax({
-                    type: 'GET',
-                    url: custom_cart_ajax.ajax_url,
-                    data: { action: 'get_cart_contents' },
-                    success: function (cartContents) {
-                        cartContents = JSON.parse(cartContents);
-                        $('#cart__toggle').prop('checked', true);
-                        $('.cart-contents').html(buildCartHtml(cartContents));
-                    }
-                });
-            }
-        });
+            });
     });
 });
 

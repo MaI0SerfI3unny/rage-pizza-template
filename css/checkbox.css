@@ -1,7 +1,7 @@
 .checkbox-custom {
     display: flex;
     position: relative;
-    padding-left: 30px; /* Размер флажка + отступ для обводки */
+    padding-left: 30px;
     cursor: pointer;
     align-items: center;
     min-height: 26px;

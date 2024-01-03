@@ -55,7 +55,7 @@ Template Name: checkout
             </div>
             <div class="checkout_container_list">
                 <p class="checkout_container_list_title">Кошик</p>
-                <div class="cart_product_container_list cart-contents"></div>
+                <div class="cart_product_container_list cart-contents_cart"></div>
                 <p class="total_price">Всього: <span class="total_price_main"> 0<span>грн</span></span></p>
 
                 <div class="container_submit">
@@ -67,4 +67,47 @@ Template Name: checkout
         </div>
     </div>
 </main> 
+<script>
+    jQuery(document).ready(function($) {
+    function buildCartHtml(cartContents) {
+        var html = '';
+
+        $.each(cartContents, function (_, item) {
+            html += '<div class="product_in_cart_item" data-product-id="' + item.id +'" data-quantity="' + item.quantity + '">';
+            html += '<div class="product_in_cart_item_img">';
+            html += '<img src="' + item.image + '">';
+            html += '</div>';
+            html += '<div class="product_in_cart_item_info">';
+            html += '<div class="product_in_cart_item_info_head">';
+            html += '<div class="product_in_cart_item_info_head_title">' + item.name + '</div>';
+            html += '<div class="trash_container_product_item"><img class="remove_from_cart_all" src="<?php bloginfo('template_url'); ?>/img/icons/trash.svg"></div>';
+            html += '</div>';
+            html += '<p class="product_in_cart_item_info_head_desc">' + item.short_description + '</p>';
+            html += '<div class="product_in_cart_item_panel">';
+            html += '<div class="cart_item_panel">';
+            html += '<p class="remove_from_cart">-</p>';
+            html += '<p class="cart-item-quantity quantity">' + item.quantity + '</p>';
+            html += '<p class="add_to_cart">+</p>';
+            html += '</div>';
+            html += '<div class="cart_item_price"><p>' + item.price + '</p><span>грн</span></div>';
+            html += '</div>';
+            html += '</div>';
+            html += '</div>';
+        });
+    
+        return html;
+    }
+
+    $.ajax({
+        type: 'GET',
+        url: custom_cart_ajax.ajax_url,
+        data: { action: 'get_cart_contents' },
+        success: function(cartContents) {
+            cartContents = JSON.parse(cartContents);
+            $('.cart-contents_cart').html(buildCartHtml(cartContents));
+        }
+    });
+});
+</script>
+
 <?php get_footer() ?>

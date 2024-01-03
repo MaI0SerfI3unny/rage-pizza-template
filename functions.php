@@ -38,6 +38,7 @@ add_action('wp_enqueue_scripts', function(){
     wp_enqueue_script("plugin", get_template_directory_uri() . '/js/MotionPathPlugin.min.js', array('gsap'), '3.9.0', true);
     wp_enqueue_script("select", get_template_directory_uri() . '/js/custom-select.min.js', array('jquery'), 'null', true);
     wp_enqueue_script("app", get_template_directory_uri() . '/js/app.js', array('jquery'), 'null', true);
+    wp_enqueue_script("single_panel", get_template_directory_uri() . '/js/single-panel.js', array('jquery'), 'null', true);
     wp_enqueue_script("header-burger", get_template_directory_uri() . '/js/custom-update.js', array('jquery'), 'null', true);
 });
 
@@ -116,6 +117,11 @@ function the_linker($link, $class="", $object = false){
 
 function add_to_cart_ajax() {
     $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+    $souce_id = isset($_POST['souce_id']) ? intval($_POST['souce_id']) : 0;
+
+    if($souce_id > 0){
+        WC()->cart->add_to_cart($souce_id);
+    }
 
     if ($product_id > 0) {
         WC()->cart->add_to_cart($product_id);

@@ -1,23 +1,30 @@
 jQuery(document).ready(function ($) {
     $('.cart_product_container_list').on('click', '.add_to_cart', function() {
-        var cartItem = $(this).closest('.product_in_cart_item');
-        var productId = cartItem.data('product-id');
-        var quantityElement = cartItem.find('.quantity');
-        var currentQuantity = parseInt(quantityElement.text());
+        let cartItem = $(this).closest('.product_in_cart_item');
+        let productId = cartItem.data('product-id');
+        let quantityElement = cartItem.find('.quantity');
+        let currentQuantity = parseInt(quantityElement.text());
 
         updateCartItem(productId, currentQuantity + 1, quantityElement);
     });
 
     $('.cart_product_container_list').on('click', '.remove_from_cart', function() {
-        var cartItem = $(this).closest('.product_in_cart_item');
-        var productId = cartItem.data('product-id');
-        var quantityElement = cartItem.find('.quantity');
-        var currentQuantity = parseInt(quantityElement.text());
+        let cartItem = $(this).closest('.product_in_cart_item');
+        let productId = cartItem.data('product-id');
+        let quantityElement = cartItem.find('.quantity');
+        let currentQuantity = parseInt(quantityElement.text());
 
         if (currentQuantity === 1) 
             removeCartItem(productId, cartItem);
         else 
             updateCartItem(productId, currentQuantity - 1, quantityElement);
+    });
+
+    $('.cart_product_container_list').on('click', '.remove_from_cart_all', function() {
+        let cartItem = $(this).closest('.product_in_cart_item');
+        let productId = cartItem.data('product-id');
+        
+        removeCartItem(productId, cartItem);
     });
 
     function updateCartItem(productId, newQuantity, quantityElement) {

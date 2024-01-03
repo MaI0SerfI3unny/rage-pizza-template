@@ -436,3 +436,22 @@ header{
         width: 100%;
     }
 }
+
+
+.trash_container_product_item{
+    cursor: pointer;
+    border-radius: 40px;
+    display: flex;
+    img{
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+    }
+    img:hover{
+        transition: 0.5s;
+        background: black;
+
+    }
+}
