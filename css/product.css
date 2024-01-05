@@ -41,8 +41,7 @@
 
     .product_list .product_list_item:last-child,
     .product_list_category .product_item_category:last-child {
-        border-left: none;
-
+        border-right: none;
     }
 }
 
