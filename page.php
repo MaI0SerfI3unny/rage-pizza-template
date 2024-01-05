@@ -6,6 +6,7 @@
     $args = array(
         'post_type' => 'product',
         'product_cat' => $category_slug,
+        'posts_per_page' => -1,
     );
     $loop = new WP_Query($args);
 ?>

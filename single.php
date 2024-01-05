@@ -66,6 +66,7 @@ get_header() ?>
                                 $lastSegment = basename(parse_url($url, PHP_URL_PATH));
                                 $decodedSegment = urldecode($lastSegment);
                                 list($pizza_name, $pizza_length) = explode("-", $decodedSegment);
+                                
                                 $product_similar = get_page_by_path(($pizza_name . "-" . ($pizza_length == 20 ? "30":"20")), OBJECT, 'product');
                             ?>                                
                             <div class="single_size_container">
