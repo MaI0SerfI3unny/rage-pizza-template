@@ -23,7 +23,13 @@
                                 <?php the_post_thumbnail(); ?>
                                 <p class="product_title"><?php the_title(); ?></p>
                                 <div class="product_more_info">
-                                    <?php echo get_the_excerpt(); ?>
+                                    <?php 
+                                        $content = get_the_excerpt();
+                                        $content = strip_tags($content);
+                                        
+                                        $dots = mb_strlen(mb_substr($content, 0, 63)) < 63 ? " " : "...";
+                                        echo mb_substr($content, 0, 63) . $dots;
+                                        ?>
                                 </div>
                                 <div class="product_additional_info">
                                     <div class="product_info">
