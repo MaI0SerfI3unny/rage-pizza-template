@@ -41,7 +41,7 @@
                                             <p class="product_weight"><?php echo get_post_meta(get_the_ID(), '_weight', true); ?> <span>г</span></p>
                                         </div>
                                         <div class="product_buy_panel">
-                                            <button class="add-to-cart-button" data-product-id="<?php echo esc_attr(get_the_ID()); ?>">В кошик</button>
+                                            <button data-product-id="<?php echo esc_attr(get_the_ID()); ?>">Перейти</button>
                                         </div>
                                     </div>
                 

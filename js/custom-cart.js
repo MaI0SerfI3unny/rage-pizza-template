@@ -3,8 +3,12 @@ jQuery(document).ready(function ($) {
     $('.add-to-cart-button').on('click', function (e) {
         e.preventDefault();
         var product_id = $(this).data('product-id');
+        var product_type = $(this).data('product-type');
         var checkedSouce = $('.input_souce:checked');
 
+        if(product_type && checkedSouce.length === 0){
+            console.log("Its pizza and take souce")
+        }else{
             var productIdSouce = checkedSouce.data('product-id');
             $.ajax({
                 type: 'POST',
@@ -64,6 +68,7 @@ jQuery(document).ready(function ($) {
                     });
                 }
             });
+        }
     });
 });
 

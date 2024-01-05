@@ -87,10 +87,8 @@
         margin-bottom: 0;
     }
 
-    .product_container{
-        .container{
-            max-width: fit-content;
-        }
+    .product_container .container{
+        max-width: fit-content;
     }
 }
 

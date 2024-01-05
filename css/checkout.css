@@ -24,10 +24,10 @@
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 12px;
-    span{
-        color: #00A8FF;
+}
 
-    }
+.input_checkout_title span{
+    color: #00A8FF;
 }
 
 .checkout_container_list_title{
@@ -39,68 +39,69 @@
     margin-bottom: 32px;
 }
 
-.checkout{
-    input,
-    textarea{
-        outline: none;
-    }
-
-    input{
-        border-radius: 8px;
-        border: 1px solid #1F1F1F;
-        background: transparent;
-        height: 43px;
-        max-width: 511px;
-        width: 100%;
-        color: white;
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        text-indent: 12px;
-    }
-    input::placeholder {
-        color: #6B6B6B;
-    }
-    
-    textarea{
-        text-indent: 12px;
-        height: 138px;
-        border-radius: 8px;
-        background: #1F1F1F;
-        max-width: 511px;
-        width: 100%;
-        padding-top: 12px;
-        color: white;
-        font-size: 16px;
-        font-family: 'Inter', sans-serif;
-        resize:none;
-        margin-bottom: 60px;
-    }
+.checkout input,
+.checkout textarea {
+    outline: none;
 }
+
+.checkout input {
+    border-radius: 8px;
+    border: 1px solid #1F1F1F;
+    background: transparent;
+    height: 43px;
+    max-width: 511px;
+    width: 100%;
+    color: white;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    text-indent: 12px;
+}
+
+.checkout input::placeholder {
+    color: #6B6B6B;
+}
+
+.checkout textarea {
+    text-indent: 12px;
+    height: 138px;
+    border-radius: 8px;
+    background: #1F1F1F;
+    max-width: 511px;
+    width: 100%;
+    padding-top: 12px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    resize: none;
+    margin-bottom: 60px;
+}
+
 .checkout_container{
     display: flex;
     justify-content: space-between;
-    .checkout_container_list{
-        width: 100%;
-        max-width: 511px;
-    }
-    .checkout_container_form{
-        width: 100%;
-        max-width: 596px;
-    }
 }
 
-
+.checkout_container .checkout_container_list{
+    width: 100%;
+    max-width: 511px;
+}
+.checkout_container .checkout_container_form{
+    width: 100%;
+    max-width: 596px;
+}
 
 .iti{
     width: 100%;
-    .iti__flag-container{
-        background: #1F1F1F;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
-    }
-    .iti__selected-dial-code{
-        color: white;
-    }
+}
+
+.iti .iti__flag-container{
+    background: #1F1F1F;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.iti .iti__selected-dial-code{
+    color: white;
 }
 
 
@@ -129,22 +130,24 @@
     font-weight: 600;
     text-transform: uppercase;
     margin-top: 54px;
-    .total_price_main{
-        margin-left: 5px;
-        color: #00A8FF;
-        font-family: 'Yanone Kaffeesatz', sans-serif;
-        font-size: 32px;
-        font-weight: 600;
-        text-transform: uppercase;
-        display: flex;
-        align-items: flex-start;
-        span{
-            color: #00A8FF;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px ;
-            font-weight: 500;
-        }
-    }
+}
+
+.total_price .total_price_main{
+    margin-left: 5px;
+    color: #00A8FF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-start;
+}
+
+.total_price .total_price_main span{
+    color: #00A8FF;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px ;
+    font-weight: 500;
 }
 
 @media (max-width:1200px) {

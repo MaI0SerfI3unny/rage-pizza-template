@@ -15,18 +15,19 @@
 .single_row{
     display: flex;
     justify-content: space-between;
-    .img_single_container,
-    .content_single_container
-    {
-        width: 50%;
-        padding: 10px;
-    }
+}
 
-    .img_single_container img{
-        width: 100%;
-        height: 100%;
-        max-height: 506px;
-    }
+.single_row .img_single_container,
+.single_row .content_single_container
+{
+    width: 50%;
+    padding: 10px;
+}
+
+.single_row .img_single_container img{
+    width: 100%;
+    height: 100%;
+    max-height: 506px;
 }
 
 .single_product_title{
@@ -50,12 +51,14 @@
     display: flex;
     margin-top: 24px;
     align-items: center;
-    div{
-        margin-right: 10px;
-    }
-    div:last-child{
-       margin-right: 0; 
-    }
+}
+
+.single_tags_container div{
+    margin-right: 10px;
+}
+
+.single_tags_container div:last-child{
+   margin-right: 0; 
 }
 
 .product_regular_price_panel{
@@ -75,10 +78,11 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    img{
-        max-width: 64px;
-        margin-right: 6px;
-    }
+}
+
+.vegan_span img{
+    max-width: 64px;
+    margin-right: 6px;
 }
 
 .hot_span{
@@ -95,271 +99,286 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    img{
-        max-width: 64px;
-        margin-right: 3px;
-    }
 }
 
-.single_panel_container{
+.hot_span img{
+    max-width: 64px;
+    margin-right: 3px;
+}
+
+.single_panel_container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 48px;
     margin-top: 48px;
-    .span_price_container{
-        width: 105px;
-        height: 55px;
-        background: url("../img/layer/buy_single_btn.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #00A8FF;
-        font-family: 'Yanone Kaffeesatz', sans-serif;
-        font-size: 32px;
-        font-weight: 600;
-        text-transform: uppercase;
-        span{
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 500;
-        }
-    }
-    button{
-        height: 56px;
-        cursor: pointer;
-        width: 463px;
-        color: white;
-        border-radius: 8px;
-        background: #00A8FF;
-        color: #FFF;
-        border: none;
-        font-family: 'Yanone Kaffeesatz', sans-serif;
-        font-size: 32px;
-        font-weight: 600;
-        text-transform: uppercase;
-    }
 }
-.single_size_container{
+
+.single_panel_container .span_price_container {
+    width: 105px;
+    height: 55px;
+    background: url("../img/layer/buy_single_btn.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00A8FF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.single_panel_container .span_price_container span {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.single_panel_container button {
+    height: 56px;
+    cursor: pointer;
+    width: 463px;
+    color: white;
+    border-radius: 8px;
+    background: #00A8FF;
+    color: #FFF;
+    border: none;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.single_size_container {
     margin-bottom: 48px;
-    .single_size_container_title{
-        color: #FFF;
-        font-family: 'Yanone Kaffeesatz', sans-serif;
-        font-size: 36px;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 24px;
-    }
-    .single_size_subcontainer{
-        display: flex;
-        .size_container_item_link{
-            margin-right: 32px;
-        }
-        .size_container_item{
-            cursor: pointer;
-            width: 218px;
-            height: 94px;
-            border-radius: 12px;
-            border: 1px solid #00A8FF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.02);
-            margin-right: 32px;
-            img{
-                margin-right: 12px;
-            }
-            .size_characteristics{
-                border-radius: 64px;
-                background: #00A8FF;
-                display: flex;
-                align-items: center;
-                padding: 6px 12px;
-                p{
-                    color: #FFF;
-                    font-family: 'Yanone Kaffeesatz', sans-serif;
-                    font-size: 24px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    display: flex;
-                    span{
-                        color: #FFF;
-                        margin-left: 5px;
-                        font-family: 'Inter', sans-serif;
-                        font-size: 10px;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                    }
-                }
-                p:first-child{
-                    align-items: baseline;
-                }
-                p:last-child{
-                    align-items: flex-start;
-                }
-                .line{
-                    margin-left: 5px;
-                    margin-right: 5px;
-                }
-            }
-        }
-        .size_container_item:last-child{
-            margin-right: 0;
-        }
-
-    }
 }
 
-.souce_container_chooser{
-    .souce_container_chooser_head{
-        display: flex;
-        align-items: center;
-        margin-bottom: 6px;
-        span{
-            border-radius: 64px;
-            background: #FF2C2C;
-            padding: 6px 12px;
-            max-width: 144px;
-            width: 100%;
-            color: #FFF;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .souce_container_chooser_title{
-            color: #FFF;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
-            font-size: 36px;
-            font-weight: 600;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-        }
-    }
-    .souce_chooser_desc{
-        color: #6B6B6B;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 19px;
-        margin-bottom: 32px;
-    }
-    .souce_item{
-        display: flex;
-        align-items: center;
-        margin-bottom: 24px;
-        max-width: 498px;
-        width: 100%;
-
-        div:first-child{
-            color: #FFF;
-            width: 70%;
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 19px;
-        }
-        div:last-child{
-            display: flex;
-            width: 30%;
-            justify-content: flex-end;
-            color:  #00A8FF;
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-        }
-    }
+.single_size_container .single_size_container_title {
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 24px;
 }
+
+.single_size_container .single_size_subcontainer {
+    display: flex;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item_link {
+    margin-right: 32px;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item {
+    cursor: pointer;
+    width: 218px;
+    height: 94px;
+    border-radius: 12px;
+    border: 1px solid #00A8FF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    margin-right: 32px;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item img {
+    margin-right: 12px;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics {
+    border-radius: 64px;
+    background: #00A8FF;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics p {
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics p span {
+    color: #FFF;
+    margin-left: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics p:first-child {
+    align-items: baseline;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics p:last-child {
+    align-items: flex-start;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item .size_characteristics .line {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.single_size_container .single_size_subcontainer .size_container_item:last-child {
+    margin-right: 0;
+}
+
+
+.souce_container_chooser .souce_container_chooser_head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.souce_container_chooser .souce_container_chooser_head span {
+    border-radius: 64px;
+    background: #FF2C2C;
+    padding: 6px 12px;
+    max-width: 144px;
+    width: 100%;
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.souce_container_chooser .souce_container_chooser_head .souce_container_chooser_title {
+    color: #FFF;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.souce_container_chooser .souce_chooser_desc {
+    color: #6B6B6B;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-bottom: 32px;
+}
+
+.souce_container_chooser .souce_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    max-width: 498px;
+    width: 100%;
+}
+
+.souce_container_chooser .souce_item div:first-child {
+    color: #FFF;
+    width: 70%;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.souce_container_chooser .souce_item div:last-child {
+    display: flex;
+    width: 30%;
+    justify-content: flex-end;
+    color: #00A8FF;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
 
 @media (max-width:1400px) {
-    .single_panel_container{
-        button{
-            width: 240px;
-        }
+    .single_panel_container button{
+        width: 240px;
     }
 }
 
 @media (max-width: 992px) {
-    .single_row{
+    .single_row {
         display: block;
     }
 
-    .interest .interest_title{
+    .interest .interest_title {
         text-align: center;
     }
-    .single_row 
-    .img_single_container, 
-    .single_row
-    .content_single_container{
+
+    .single_row .img_single_container, 
+    .single_row .content_single_container {
         width: 100%;
     }
 
-    .single_first_item{
+    .single_first_item {
         display: flex;
         justify-content: center;
     }
 
-    .single_panel_container{
-        div{ 
-            width:50%;
-            .add-to-cart-button{
-                width: 100%;
-            }
-        }
+    .single_panel_container div {
+        width: 50%;
+    }
+
+    .single_panel_container div .add-to-cart-button {
+        width: 100%;
     }
 }
 
-@media (max-width:630px) {
-    .single_panel_container{
+@media (max-width: 630px) {
+    .single_panel_container {
         display: block;
-        .add-to-cart-button{
-            margin-top: 40px;
-        }
     }
 
-    .single .container{
+    .single_panel_container .add-to-cart-button {
+        margin-top: 40px;
+    }
+
+    .single .container {
         padding: 0;
         width: fit-content;
     }
 
-    .interest .interest_title{
+    .interest .interest_title {
         padding: 10px;
     }
 
-    .single_row .img_single_container{
+    .single_row .img_single_container {
         width: -webkit-fill-available;
     }
 
-    .single_row .content_single_container{
-
+    .single_row .content_single_container {
         width: -webkit-fill-available;
     }
 
-    .single_product_title{
+    .single_product_title {
         font-size: 50px;
     }
 
-    .single_size_container
-    .single_size_subcontainer{
+    .single_size_container .single_size_subcontainer {
         display: block;
     }
 
-    .single_size_container
-    .single_size_subcontainer
-    .size_container_item{
+    .single_size_container .single_size_subcontainer .size_container_item {
         width: 100%;
         margin-top: 30px;
     }
 
-    .single_row{
+    .single_row {
         height: max-content;
     }
 }

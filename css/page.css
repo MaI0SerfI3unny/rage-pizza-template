@@ -21,10 +21,8 @@
     margin-bottom: 56px;
 }
 
-.product_list_category{
-    .product_item_category{
-        width: 24%;
-    }
+.product_list_category .product_item_category{
+    width: 24%;
 }
 
 @media (max-width: 1200px) {
